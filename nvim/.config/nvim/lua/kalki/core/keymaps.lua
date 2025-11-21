@@ -25,8 +25,28 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- buffer navigation (for bufferline)
+keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next buffer" }) -- next buffer
+keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous buffer" }) -- previous buffer
+keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" }) -- close buffer
+keymap.set("n", "<leader>b", "<cmd>enew<CR>", { desc = "New buffer" }) -- new empty buffer
+
+-- tab navigation (workspaces)
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- colorscheme switching
+keymap.set("n", "<leader>cs", function()
+  vim.ui.select(
+    { "catppuccin", "tokyonight", "rose-pine", "kanagawa", "gruvbox-material", "nord", "onedark", "nightfox" },
+    { prompt = "Select colorscheme:" },
+    function(choice)
+      if choice then
+        vim.cmd.colorscheme(choice)
+      end
+    end
+  )
+end, { desc = "Switch colorscheme" })

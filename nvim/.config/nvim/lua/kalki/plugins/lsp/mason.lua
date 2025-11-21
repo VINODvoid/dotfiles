@@ -44,9 +44,6 @@ return {
         "stylua", -- lua formatter
         "isort", -- python formatter
         "black", -- python formatter
-        "debugpy", -- python debugger
-        "codelldb", -- C/C++ debugger
-        "node-debug2-adapter", -- Node.js debugger
       },
     })
   end,

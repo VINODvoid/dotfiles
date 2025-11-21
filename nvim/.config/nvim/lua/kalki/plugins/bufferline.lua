@@ -4,8 +4,24 @@ return {
   version = "*",
   opts = {
     options = {
-      mode = "tabs",
-     -- separator_style = "slant",
+      mode = "buffers",
+      separator_style = "slant",
+      always_show_bufferline = true,
+      show_buffer_close_icons = true,
+      show_close_icon = false,
+      diagnostics = "nvim_lsp",
+      diagnostics_indicator = function(count, level)
+        local icon = level:match("error") and " " or " "
+        return " " .. icon .. count
+      end,
+      offsets = {
+        {
+          filetype = "NvimTree",
+          text = "File Explorer",
+          text_align = "center",
+          separator = true,
+        },
+      },
     },
   },
 }

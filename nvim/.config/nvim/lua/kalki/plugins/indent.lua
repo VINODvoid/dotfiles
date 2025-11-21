@@ -3,6 +3,29 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   main = "ibl",
   opts = {
-    indent = { char = "┊" },
+    indent = {
+      char = "│",
+      tab_char = "│",
+    },
+    scope = {
+      enabled = true,
+      show_start = true,
+      show_end = false,
+      char = "▎",
+    },
+    exclude = {
+      filetypes = {
+        "help",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "toggleterm",
+        "lazyterm",
+      },
+    },
   },
 }

@@ -8,6 +8,7 @@ Personal configuration files for my development environment.
 - **tmux/** - Terminal multiplexer configuration
 - **zsh/** - Zsh shell configuration
 - **kitty/** - Kitty terminal emulator configuration
+- **wezterm/** - WezTerm terminal emulator configuration
 - **git/** - Git configuration and settings
 - **lazygit/** - LazyGit TUI configuration
 - **btop/** - System monitor configuration
@@ -49,6 +50,9 @@ ln -s ~/dotfiles/tmux/.config/tmux ~/.config/tmux
 
 # Example: Zsh
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+
+# Example: WezTerm
+ln -s ~/dotfiles/wezterm/.config/wezterm ~/.config/wezterm
 ```
 
 Alternatively, use GNU Stow for easier management:
@@ -58,6 +62,8 @@ cd ~/dotfiles
 stow nvim
 stow tmux
 stow zsh
+stow kitty
+stow wezterm
 # etc.
 ```
 

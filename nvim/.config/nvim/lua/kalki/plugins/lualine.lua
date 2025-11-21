@@ -53,19 +53,53 @@ return {
     lualine.setup({
       options = {
         theme = my_lualine_theme,
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        globalstatus = true,
       },
       sections = {
+        lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+        lualine_b = { "branch", "diff" },
+        lualine_c = {
+          {
+            "filename",
+            file_status = true,
+            path = 1,
+            symbols = {
+              modified = " ●",
+              readonly = " ",
+              unnamed = "[No Name]",
+            },
+          },
+          {
+            "diagnostics",
+            sources = { "nvim_lsp" },
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          },
+        },
         lualine_x = {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
             color = { fg = "#ff9e64" },
           },
-          { "encoding" },
-          { "fileformat" },
-          { "filetype" },
+          { "filetype", icon_only = false },
+        },
+        lualine_y = { "progress" },
+        lualine_z = {
+          { "location", separator = { right = "" }, left_padding = 2 },
         },
       },
+      inactive_sections = {
+        lualine_a = { "filename" },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "location" },
+      },
+      tabline = {},
+      extensions = { "nvim-tree", "lazy" },
     })
   end,
 }

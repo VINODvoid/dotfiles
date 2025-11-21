@@ -41,3 +41,28 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- UI enhancements
+opt.cmdheight = 1 -- command line height
+opt.showmode = false -- don't show mode since we have lualine
+opt.pumheight = 10 -- pop up menu height
+opt.conceallevel = 0 -- so that `` is visible in markdown files
+opt.scrolloff = 8 -- minimal number of screen lines to keep above and below cursor
+opt.sidescrolloff = 8 -- minimal number of screen columns either side of cursor
+opt.updatetime = 250 -- faster completion
+opt.timeoutlen = 300 -- time to wait for mapped sequence
+
+-- better floating window borders
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})
+
+-- set rounded borders for LSP windows
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "rounded"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
