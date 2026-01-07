@@ -58,3 +58,12 @@ setopt INC_APPEND_HISTORY
 export PATH=/home/crybaby/.opencode/bin:$PATH
 
 . "$HOME/.local/share/../bin/env"
+export PATH=$HOME/.local/bin:$PATH
+
+# bun completions
+[ -s "/home/crybaby/.bun/_bun" ] && source "/home/crybaby/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=$PATH:~/.local/bin

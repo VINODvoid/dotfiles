@@ -43,14 +43,34 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- UI enhancements
-opt.cmdheight = 1 -- command line height
+opt.cmdheight = 0 -- hide command line when not in use (more modern)
 opt.showmode = false -- don't show mode since we have lualine
-opt.pumheight = 10 -- pop up menu height
+opt.pumheight = 15 -- pop up menu height
+opt.pumblend = 10 -- transparency for pop-up menu
+opt.winblend = 0 -- transparency for floating windows
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.scrolloff = 8 -- minimal number of screen lines to keep above and below cursor
 opt.sidescrolloff = 8 -- minimal number of screen columns either side of cursor
 opt.updatetime = 250 -- faster completion
 opt.timeoutlen = 300 -- time to wait for mapped sequence
+opt.laststatus = 3 -- global statusline
+opt.showtabline = 2 -- always show tabs
+opt.fillchars = {
+  fold = " ",
+  foldopen = "-",
+  foldclose = "+",
+  foldsep = " ",
+  diff = "/",
+  eob = " ",
+}
+opt.list = true -- enable list mode for better whitespace visualization
+opt.listchars = {
+  tab = "> ",
+  trail = ".",
+  extends = ">",
+  precedes = "<",
+  nbsp = "+",
+}
 
 -- better floating window borders
 vim.diagnostic.config({
@@ -58,6 +78,18 @@ vim.diagnostic.config({
     border = "rounded",
   },
 })
+
+-- define diagnostic signs for nvim-tree and other plugins
+local signs = {
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
 
 -- set rounded borders for LSP windows
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview

@@ -1,3 +1,8 @@
+-- ===================================================================
+-- Lualine - Statusline
+-- Beautiful and fast statusline with git integration
+-- ===================================================================
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },

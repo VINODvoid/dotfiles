@@ -1,3 +1,8 @@
+-- ===================================================================
+-- Bufferline - Buffer Tabs
+-- VSCode-like buffer/tab management in the top bar
+-- ===================================================================
+
 return {
   "akinsho/bufferline.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },

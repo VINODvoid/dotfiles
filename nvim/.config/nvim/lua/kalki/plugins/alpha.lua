@@ -1,5 +1,11 @@
+-- ===================================================================
+-- Alpha - Dashboard
+-- Beautiful start screen (disabled, using snacks.nvim instead)
+-- ===================================================================
+
 return {
   "goolord/alpha-nvim",
+  enabled = false, -- Using snacks.nvim dashboard instead
   event = "VimEnter",
   config = function()
     local alpha = require("alpha")

@@ -27,11 +27,13 @@ alias cat='bat --style=auto'
 alias catn='bat --style=plain'
 alias catl='bat --style=full'
 
-# ripgrep (better grep)
-alias grep='rg'
+# ripgrep (better grep) - Use 'rg' directly instead of aliasing grep
+# This prevents breaking scripts that depend on grep behavior
+# alias grep='rg'  # Disabled to prevent conflicts
 
-# fd (better find)
-alias find='fd'
+# fd (better find) - Use 'fd' directly instead of aliasing find
+# This prevents breaking scripts that depend on find behavior
+# alias find='fd'  # Disabled to prevent conflicts
 
 # zoxide (better cd)
 alias cd='z'

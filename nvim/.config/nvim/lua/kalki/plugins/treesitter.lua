@@ -1,3 +1,8 @@
+-- ===================================================================
+-- Treesitter - Syntax Highlighting
+-- Advanced syntax highlighting and code understanding
+-- ===================================================================
+
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },

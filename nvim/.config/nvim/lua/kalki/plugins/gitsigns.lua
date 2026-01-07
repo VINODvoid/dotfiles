@@ -1,3 +1,8 @@
+-- ===================================================================
+-- Gitsigns - Git Integration
+-- Git decorations and hunk management in the sign column
+-- ===================================================================
+
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },

@@ -95,6 +95,9 @@ config.animation_fps = 60
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 
+-- Enable Kitty image protocol for image.nvim
+config.enable_kitty_graphics = true
+
 -- ============================================================================
 -- KEYBINDINGS
 -- ============================================================================

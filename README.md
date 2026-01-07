@@ -29,7 +29,9 @@ The Neovim configuration includes:
 - Project-wide search and replace with Spectre
 - And many more features
 
-For a complete list of keybindings and features, see [CHEATSHEET.md](./CHEATSHEET.md).
+For keybindings and features documentation:
+- **[TOOLS_CHEATSHEET.md](./TOOLS_CHEATSHEET.md)** - Complete reference for all CLI tools, shell aliases, tmux, wezterm, lazygit, btop, and more
+- **[NEOVIM_CHEATSHEET.md](./NEOVIM_CHEATSHEET.md)** - Detailed Neovim keybindings and plugin documentation
 
 ## Installation
 
@@ -39,42 +41,114 @@ Clone this repository to your home directory:
 git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
 ```
 
-Then symlink the configurations you want to use:
+### Using GNU Stow (Recommended)
 
-```bash
-# Example: Neovim
-ln -s ~/dotfiles/nvim/.config/nvim ~/.config/nvim
-
-# Example: Tmux
-ln -s ~/dotfiles/tmux/.config/tmux ~/.config/tmux
-
-# Example: Zsh
-ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
-
-# Example: WezTerm
-ln -s ~/dotfiles/wezterm/.config/wezterm ~/.config/wezterm
-```
-
-Alternatively, use GNU Stow for easier management:
+GNU Stow makes it easy to manage dotfiles by creating symlinks:
 
 ```bash
 cd ~/dotfiles
-stow nvim
-stow tmux
-stow zsh
-stow kitty
-stow wezterm
-# etc.
+
+# Install all configurations
+stow nvim zsh wezterm kitty tmux lazygit btop git
+
+# Or install individually
+stow nvim      # Neovim
+stow zsh       # Zsh shell
+stow wezterm   # WezTerm terminal
+stow kitty     # Kitty terminal
+stow tmux      # Tmux
+stow lazygit   # LazyGit
+stow btop      # System monitor
+stow git       # Git config
+```
+
+### Manual Installation
+
+Alternatively, symlink configurations manually:
+
+```bash
+# Neovim
+ln -s ~/dotfiles/nvim/.config/nvim ~/.config/nvim
+
+# Tmux
+ln -s ~/dotfiles/tmux/.config/tmux ~/.config/tmux
+
+# LazyGit
+ln -s ~/dotfiles/lazygit/.config/lazygit ~/.config/lazygit
+
+# Btop
+ln -s ~/dotfiles/btop/.config/btop ~/.config/btop
+
+# Zsh
+ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/dotfiles/zsh/.zshenv ~/.zshenv
+ln -s ~/dotfiles/zsh/.config/zsh ~/.config/zsh
+
+# WezTerm
+ln -s ~/dotfiles/wezterm/.config/wezterm ~/.config/wezterm
+
+# Kitty
+ln -s ~/dotfiles/kitty/.config/kitty ~/.config/kitty
+
+# Git
+ln -s ~/dotfiles/git/.config/git/config ~/.gitconfig
+```
+
+### Post-Installation Steps
+
+#### Tmux Plugin Manager (TPM)
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# Then in tmux: prefix + I to install plugins
+```
+
+#### Oh My Zsh
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install additional plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 ```
 
 ## Requirements
 
-- Neovim >= 0.9.0
-- Git
-- A Nerd Font (for icons)
-- ripgrep (for Telescope live grep)
-- Node.js (for LSP servers)
-- Python 3 (for Python LSP and formatters)
+### Essential
+- **Neovim** >= 0.9.0
+- **Git**
+- **Zsh**
+- **Tmux**
+- **A Nerd Font** (JetBrains Mono Nerd Font recommended)
+
+### Modern CLI Tools (Recommended)
+- **eza** - Better ls alternative
+- **bat** - Better cat with syntax highlighting
+- **ripgrep (rg)** - Fast search tool
+- **fd** - Better find alternative
+- **zoxide** - Smarter cd command
+- **fzf** - Fuzzy finder
+- **btop** - System monitor
+- **lazygit** - Git TUI
+- **ncdu** - Disk usage analyzer
+- **delta** - Better git diff viewer
+
+### Development Tools
+- **Node.js** (for LSP servers)
+- **Python 3** (for Python LSP and formatters)
+- **Rust** (for various CLI tools)
+- **Go** (optional, for Go development)
+
+### Installation (Arch Linux)
+```bash
+# Essential tools
+sudo pacman -S neovim git zsh tmux ttf-jetbrains-mono-nerd
+
+# Modern CLI tools
+sudo pacman -S eza bat ripgrep fd zoxide fzf btop lazygit ncdu git-delta
+
+# Development tools
+sudo pacman -S nodejs npm python python-pip rustup go
+```
 
 ## License
 
