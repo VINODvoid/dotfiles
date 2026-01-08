@@ -129,6 +129,35 @@ Complete reference for all tools configured in this dotfiles repository.
 
 **Prefix Key:** `Ctrl+a` (instead of default `Ctrl+b`)
 
+### Enhanced Status Bar Features
+
+The tmux status bar shows comprehensive system information:
+
+**Left Side:**
+- 󰍹 Session name (Blue)
+- 󰣇 Hostname
+
+**Center:**
+- Window number and name
+- Active window highlighted in purple/mauve
+- 󰁌 Zoom indicator when pane is maximized
+
+**Right Side:**
+- Status indicator (󰐃 PREFIX when prefix pressed, 󰁌 ZOOM when zoomed, 󰀘 normal)
+- 󰻠 CPU usage with color coding (green/yellow/red)
+- 󰍛 RAM usage percentage
+- Battery icon and percentage (󰂄 charging,  charged, 󰁹 discharging)
+- 󰃰 Date and day
+-  Current time (Blue)
+
+**Visual Design:**
+- Catppuccin Mocha theme
+- Powerline-style separators ()
+- Color-coded system resources
+- Nerd Font icons throughout
+
+For detailed visual guide, see: `tmux/.config/tmux/TMUX_DESIGN.md`
+
 ### Session Management
 
 | Key | Action |
