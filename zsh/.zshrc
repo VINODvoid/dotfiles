@@ -67,3 +67,5 @@ export PATH=$HOME/.local/bin:$PATH
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=$PATH:~/.local/bin
+
+alias claude-mem='bun "/home/crybaby/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
